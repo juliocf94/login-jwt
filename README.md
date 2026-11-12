@@ -82,6 +82,33 @@ git clone https://github.com/juliocf94/login-jwt.git JulioCesarFloresFuentes
 
 Para DBeaver o SQL Developer: conexión tipo **Service Name** = `FREEPDB1` (no SID), usuario `app` / `app123`.
 
+### ¿Qué es `FREEPDB1`?
+
+**No lo nombramos nosotros: es el nombre por defecto que trae Oracle Database Free.** `FREE` = la edición gratuita · `PDB` = *Pluggable Database* (base de datos "enchufable") · `1` = la primera.
+
+Desde la versión 12c Oracle usa una arquitectura **multitenant**. Analogía de un edificio 🏢:
+
+| Oracle | Edificio | En este Docker |
+|---|---|---|
+| **CDB** (Container Database) | El edificio: administración y sistemas centrales | `FREE` |
+| **PDB** (Pluggable Database) | Un apartamento: donde se vive de verdad | `FREEPDB1` |
+| **Usuario / esquema** | Una habitación del apartamento | `APP`, `HACIENDA` |
+| **Tablas** | Los muebles | `USUARIO`, `CONTRIBUYENTE` |
+
+**Las tablas de la aplicación van siempre en la PDB**, nunca en la CDB. Por eso la URL termina en `/FREEPDB1` y no en `/FREE`: si te conectas a `FREE` no encuentras tus tablas.
+
+El nombre cambia según la edición:
+
+| Oracle | PDB típica |
+|---|---|
+| Free 23ai (este Docker) | `FREEPDB1` |
+| Express Edition (XE 21c) | `XEPDB1` |
+| Enterprise (empresas) | `ORCLPDB1` o el que elija el DBA |
+
+**En la prueba**, si dan su propio Oracle, preguntar: *"¿cuál es el service name?"* y ponerlo en la URL: `jdbc:oracle:thin:@//HOST:1521/SERVICE_NAME`.
+
+> **Respuesta corta si lo preguntan:** "FREEPDB1 es la base de datos enchufable (PDB) que trae Oracle Free por defecto. Oracle usa una arquitectura multitenant: un contenedor (CDB) con una o varias PDB, y las tablas de la aplicación van en la PDB."
+
 ### Opción A: Oracle con el `docker-compose.yml` de este proyecto
 
 ```powershell
