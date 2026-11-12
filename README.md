@@ -5,7 +5,7 @@ Molde funcional para la prueba técnica: **login con JWT**, dos roles (**ADMIN**
 Hay **dos backends que hacen exactamente lo mismo** (mismas URLs, mismos JSON, mismos códigos HTTP). Usas el que pidan en la prueba; Angular funciona con cualquiera de los dos.
 
 ```
-login-jwt/
+login-jwt/                   (o el nombre con que se clone, p. ej. JulioCesarFloresFuentes/)
 ├─ docker-compose.yml        Oracle 23 Free (crea usuario app/app123 y ejecuta db/*.sql)
 ├─ db/01_schema.sql          Tablas USUARIO y CONTRIBUYENTE + datos de prueba
 ├─ backend-quarkus/          Puerto 8081  ·  Swagger: /q/swagger-ui
@@ -50,6 +50,21 @@ export const API_URL = 'http://localhost:8081';   // Quarkus   (Spring: 8080)
 | Node.js + npm | compatible con Angular 22 | Frontend |
 
 No hace falta Maven instalado: cada backend trae su `mvnw` (Maven Wrapper). En Mac/Linux usa `./mvnw` en lugar de `.\mvnw.cmd`.
+
+## Al clonar el repositorio
+
+```powershell
+git clone https://github.com/juliocf94/login-jwt.git JulioCesarFloresFuentes
+```
+
+- **El nombre de la carpeta raíz no afecta a los proyectos.** Quarkus y Spring toman su nombre del `pom.xml` y Angular del `angular.json`; ninguno depende de la carpeta que los contiene. Usar nombres **sin espacios ni tildes** para evitar fallos en Maven o npm.
+- **`node_modules` no está en el repo (correcto).** Antes de levantar Angular hay que ejecutar `npm install` dentro de `frontend/` (tarda unos minutos).
+- **Las carpetas `target/` de los backends sí están en el repo** (código compilado; por eso pesa ~110 MB). No rompe nada porque Maven las regenera, pero lo correcto es excluirlas con `.gitignore`. Si al arrancar aparecen errores raros, limpiar primero:
+  ```powershell
+  .\mvnw.cmd clean quarkus:dev        # Quarkus
+  .\mvnw.cmd clean spring-boot:run    # Spring Boot
+  ```
+- **Mejora pendiente:** añadir `target/` al `.gitignore` y quitarlas del repo con `git rm -r --cached backend-quarkus/target backend-spring/target`.
 
 ## Configuración de Oracle
 
