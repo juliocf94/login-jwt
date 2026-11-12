@@ -1,0 +1,12 @@
+C:\login-jwt\backend-spring\src\main\java\com\hacienda\auth\AuthController.java
+C:\login-jwt\backend-spring\src\main\java\com\hacienda\auth\LoginRequest.java
+C:\login-jwt\backend-spring\src\main\java\com\hacienda\auth\LoginResponse.java
+C:\login-jwt\backend-spring\src\main\java\com\hacienda\auth\Usuario.java
+C:\login-jwt\backend-spring\src\main\java\com\hacienda\auth\UsuarioRepository.java
+C:\login-jwt\backend-spring\src\main\java\com\hacienda\BackendSpringApplication.java
+C:\login-jwt\backend-spring\src\main\java\com\hacienda\config\GlobalExceptionHandler.java
+C:\login-jwt\backend-spring\src\main\java\com\hacienda\config\SecurityConfig.java
+C:\login-jwt\backend-spring\src\main\java\com\hacienda\contribuyente\Contribuyente.java
+C:\login-jwt\backend-spring\src\main\java\com\hacienda\contribuyente\ContribuyenteController.java
+C:\login-jwt\backend-spring\src\main\java\com\hacienda\contribuyente\ContribuyenteRepository.java
+C:\login-jwt\backend-spring\src\main\java\com\hacienda\contribuyente\ContribuyenteRequest.java

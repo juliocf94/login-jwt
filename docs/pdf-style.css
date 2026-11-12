@@ -1,0 +1,97 @@
+@page {
+  size: A4;
+  margin: 16mm 15mm 18mm 15mm;
+  @bottom-right { content: counter(page); font: 9pt "Segoe UI", Arial, sans-serif; color: #888; }
+  @bottom-left  { content: "Preguntas de teoría · Java · Oracle · Angular · JWT"; font: 8pt "Segoe UI", Arial, sans-serif; color: #aaa; }
+}
+@page :first { @bottom-right { content: none; } @bottom-left { content: none; } }
+
+:root {
+  --ink: #1d2733; --muted: #5b6673; --line: #d9dee5;
+  --navy: #1f3a5f; --blue: #2f6fb3; --q: #4695eb; --ng: #c3002f; --ora: #c74634;
+  --note-bg: #f2f6fb; --ana-bg: #fff7e8; --ana-line: #e8a33d; --warn-bg: #fdeeee; --warn-line: #d64545;
+  --ok-bg: #edf7ef; --ok-line: #3b9a57;
+}
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family: "Segoe UI", Arial, sans-serif; font-size: 10.3pt; line-height: 1.5; color: var(--ink); margin: 0; }
+
+h1 { break-before: page; font-size: 22pt; color: var(--navy); margin: 0 0 6px; padding-bottom: 6px; border-bottom: 3px solid var(--navy); }
+h1.nobreak { break-before: avoid; }
+h2 { font-size: 14.5pt; color: var(--navy); margin: 20px 0 6px; break-after: avoid; }
+h3 { font-size: 11.5pt; color: var(--blue); margin: 14px 0 4px; break-after: avoid; }
+h4 { font-size: 10.5pt; margin: 10px 0 2px; break-after: avoid; }
+p { margin: 5px 0 7px; }
+ul, ol { margin: 4px 0 8px; padding-left: 22px; }
+li { margin: 2px 0; }
+a { color: var(--blue); text-decoration: none; }
+strong { color: #111; }
+hr { border: 0; border-top: 1px solid var(--line); margin: 14px 0; }
+
+code { font-family: Consolas, "Cascadia Mono", monospace; font-size: 9pt; background: #eef1f5; padding: 1px 4px; border-radius: 3px; }
+.codehilite { background: #f7f8fa; border: 1px solid var(--line); border-left: 3px solid var(--blue); border-radius: 4px; padding: 7px 10px; margin: 6px 0 10px; break-inside: avoid; }
+.codehilite pre { margin: 0; font-family: Consolas, "Cascadia Mono", monospace; font-size: 8.6pt; line-height: 1.42; white-space: pre-wrap; word-break: break-word; }
+.codehilite code { background: none; padding: 0; }
+
+table { border-collapse: collapse; width: 100%; margin: 6px 0 12px; font-size: 9.2pt; break-inside: avoid; }
+th { background: var(--navy); color: #fff; text-align: left; padding: 5px 7px; font-weight: 600; }
+th strong { color: #fff; }
+td { padding: 4px 7px; border-bottom: 1px solid var(--line); vertical-align: top; }
+tr:nth-child(even) td { background: #f6f8fb; }
+td code, th code { font-size: 8.4pt; }
+
+figure { margin: 10px 0 14px; text-align: center; break-inside: avoid; }
+figure svg { max-width: 100%; height: auto; }
+figcaption { font-size: 8.8pt; color: var(--muted); margin-top: 4px; font-style: italic; }
+
+.box { border-radius: 5px; padding: 8px 12px; margin: 10px 0; break-inside: avoid; }
+.box > :first-child { margin-top: 0; }
+.box > :last-child { margin-bottom: 0; }
+.box .titulo { font-weight: 700; display: block; margin-bottom: 3px; }
+.analogia { background: var(--ana-bg); border-left: 4px solid var(--ana-line); }
+.analogia .titulo { color: #9a5b00; }
+.nota { background: var(--note-bg); border-left: 4px solid var(--blue); }
+.nota .titulo { color: var(--blue); }
+.cuidado { background: var(--warn-bg); border-left: 4px solid var(--warn-line); }
+.cuidado .titulo { color: #a32020; }
+.clave { background: var(--ok-bg); border-left: 4px solid var(--ok-line); }
+.clave .titulo { color: #22703a; }
+
+/* Portada */
+.portada { height: 255mm; display: flex; flex-direction: column; justify-content: center; padding: 0 10mm; }
+.portada .kicker { color: var(--blue); font-weight: 600; letter-spacing: 2px; text-transform: uppercase; font-size: 10pt; }
+.portada .titulo-grande { font-size: 34pt; line-height: 1.1; color: var(--navy); font-weight: 700; margin: 10px 0 14px; }
+.portada .sub { font-size: 13pt; color: var(--muted); max-width: 150mm; }
+.portada .chips { margin-top: 26px; }
+.chip { display: inline-block; padding: 5px 12px; border-radius: 14px; color: #fff; font-weight: 600; font-size: 10pt; margin-right: 6px; }
+.portada .meta { margin-top: 40px; font-size: 10pt; color: var(--muted); border-top: 1px solid var(--line); padding-top: 10px; }
+
+/* Índice */
+.toc ul { list-style: none; padding-left: 0; }
+.toc > ul > li { margin: 6px 0; font-weight: 600; }
+.toc ul ul { padding-left: 18px; font-weight: 400; columns: 2; column-gap: 20px; font-size: 9.3pt; }
+.toc ul ul li { break-inside: avoid; }
+
+/* Preguntas y ejercicios */
+.ejercicio { border: 1px solid var(--line); border-radius: 5px; padding: 6px 10px; margin: 8px 0; break-inside: avoid; }
+.ejercicio .num { display: inline-block; background: var(--navy); color: #fff; border-radius: 3px; padding: 0 6px; font-weight: 700; font-size: 9pt; margin-right: 6px; }
+.nivel { font-size: 8.5pt; font-weight: 600; padding: 1px 6px; border-radius: 3px; margin-left: 4px; }
+.n1 { background: #e3f3e7; color: #22703a; } .n2 { background: #fff1d6; color: #8a5a00; } .n3 { background: #fde2e2; color: #a32020; }
+.pregunta { margin: 9px 0; break-inside: avoid; }
+.pregunta .p { font-weight: 700; color: var(--navy); }
+.pregunta .r { margin: 2px 0 0 0; padding-left: 10px; border-left: 2px solid var(--line); color: #333; }
+.dos-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; break-inside: avoid; }
+.dos-col > div { min-width: 0; }
+.dos-col .etq { font-size: 8.5pt; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
+
+.toc-title { font-size: 14.5pt; color: var(--navy); font-weight: 700; margin: 20px 0 6px; }
+
+/* --- Ajustes para PREGUNTAS-TEORIA: cada tema en página nueva, cada pregunta como tarjeta --- */
+h1.doc { break-before: avoid; }
+h3 { font-size: 12.5pt; color: var(--blue); margin: 16px 0 4px; break-after: avoid; }
+h3 + p, p:has(> strong:first-child) { break-inside: avoid; }
+p > strong:first-child { color: var(--navy); }
+img { max-width: 100%; display: block; margin: 8px auto 14px; }
+hr { display: none; }
+/* respuestas compactas: cada pregunta es un párrafo que empieza en negrita */
+p:has(> strong:first-child) { break-inside: avoid; margin: 0 0 9px; }

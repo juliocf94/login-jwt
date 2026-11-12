@@ -1,0 +1,7 @@
+com\hacienda\auth\LoginRequest.class
+com\hacienda\contribuyente\ContribuyenteRequest.class
+com\hacienda\auth\AuthResource.class
+com\hacienda\auth\Usuario.class
+com\hacienda\auth\LoginResponse.class
+com\hacienda\contribuyente\Contribuyente.class
+com\hacienda\contribuyente\ContribuyenteResource.class

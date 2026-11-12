@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" width="760" height="400" font-family="Segoe UI, Arial, sans-serif" font-size="12">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5b6673"/></marker>
+    <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c74634"/></marker>
+  </defs>
+  <rect width="760" height="400" fill="#ffffff"/>
+  <!-- columnas -->
+  <g text-anchor="middle" font-weight="700">
+    <rect x="20" y="10" width="170" height="36" rx="8" fill="#fdeeee" stroke="#c3002f"/><text x="105" y="33" fill="#a3002a">Angular (navegador)</text>
+    <rect x="295" y="10" width="170" height="36" rx="8" fill="#eaf1fb" stroke="#2f6fb3"/><text x="380" y="33" fill="#1f3a5f">Backend (Quarkus/Spring)</text>
+    <rect x="570" y="10" width="170" height="36" rx="8" fill="#fff4ec" stroke="#c74634"/><text x="655" y="33" fill="#a33a24">Oracle</text>
+  </g>
+  <g stroke="#c8d0da" stroke-dasharray="4 4"><line x1="105" y1="46" x2="105" y2="390"/><line x1="380" y1="46" x2="380" y2="390"/><line x1="655" y1="46" x2="655" y2="390"/></g>
+
+  <!-- fase 1: login -->
+  <rect x="8" y="58" width="744" height="170" rx="8" fill="#f6f9fd" stroke="#dbe4ef"/>
+  <text x="18" y="76" font-weight="700" fill="#2f6fb3">1. LOGIN (una sola vez)</text>
+  <g stroke="#5b6673" stroke-width="1.6" fill="none" marker-end="url(#a)">
+    <line x1="105" y1="100" x2="374" y2="100"/>
+    <line x1="380" y1="118" x2="649" y2="118"/>
+    <line x1="655" y1="138" x2="386" y2="138"/>
+    <line x1="374" y1="208" x2="111" y2="208"/>
+  </g>
+  <text x="240" y="95" text-anchor="middle">POST /api/auth/login  {username, password}</text>
+  <text x="515" y="112" text-anchor="middle">SELECT … FROM usuario WHERE username=?</text>
+  <text x="515" y="152" text-anchor="middle" fill="#5b6673">fila con password_hash y rol</text>
+  <rect x="300" y="160" width="160" height="34" rx="6" fill="#ffffff" stroke="#2f6fb3"/>
+  <text x="380" y="174" text-anchor="middle" font-size="11">BCrypt: ¿clave = hash?</text>
+  <text x="380" y="188" text-anchor="middle" font-size="11">sí → firmar JWT (rol, exp)</text>
+  <text x="240" y="222" text-anchor="middle">200 { token, username, rol }  → localStorage</text>
+
+  <!-- fase 2: peticiones -->
+  <rect x="8" y="240" width="744" height="150" rx="8" fill="#f5fbf6" stroke="#d5eadb"/>
+  <text x="18" y="258" font-weight="700" fill="#22703a">2. CADA PETICIÓN (el interceptor agrega el token)</text>
+  <g stroke="#5b6673" stroke-width="1.6" fill="none" marker-end="url(#a)">
+    <line x1="105" y1="278" x2="374" y2="278"/>
+    <line x1="374" y1="352" x2="111" y2="352"/>
+  </g>
+  <text x="240" y="272" text-anchor="middle">GET /api/contribuyentes</text>
+  <text x="240" y="292" text-anchor="middle" font-family="Consolas, monospace" font-size="11" fill="#1f3a5f">Authorization: Bearer eyJhbGci…</text>
+  <rect x="300" y="300" width="160" height="40" rx="6" fill="#ffffff" stroke="#3b9a57"/>
+  <text x="380" y="316" text-anchor="middle" font-size="11">¿firma válida y no vencido?</text>
+  <text x="380" y="331" text-anchor="middle" font-size="11">¿el rol tiene permiso?</text>
+  <text x="240" y="346" text-anchor="middle">200 datos</text>
+  <text x="240" y="370" text-anchor="middle" fill="#c74634" font-weight="600">sin token / vencido → 401 · rol insuficiente → 403</text>
+  <text x="560" y="320" text-anchor="middle" fill="#5b6673" font-size="11">No consulta la tabla USUARIO:</text>
+  <text x="560" y="335" text-anchor="middle" fill="#5b6673" font-size="11">todo viene dentro del token (stateless)</text>
+</svg>

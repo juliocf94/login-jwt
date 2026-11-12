@@ -1,0 +1,13 @@
+/* Estilos mínimos: la prueba evalúa funcionalidad, no diseño */
+body { font-family: system-ui, sans-serif; margin: 0; }
+main { max-width: 900px; margin: 24px auto; padding: 0 16px; }
+header { display: flex; justify-content: space-between; align-items: center; }
+.caja { display: flex; flex-direction: column; gap: 6px; max-width: 360px; margin-bottom: 20px; }
+.fila { display: flex; gap: 6px; }
+.fila input { flex: 1; }
+input, select, button { padding: 6px; font: inherit; }
+.error { color: #b00020; }
+.ok { color: #1b7f3a; }
+.ayuda { color: #666; font-size: 0.85em; }
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid #ccc; padding: 6px; text-align: left; }

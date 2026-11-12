@@ -1,0 +1,203 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 880" width="1200" height="880" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#1f2933">
+  <defs>
+    <marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5b6673"/></marker>
+    <marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6fb3"/></marker>
+    <marker id="v" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker>
+    <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c74634"/></marker>
+  </defs>
+  <rect width="1200" height="880" fill="#ffffff"/>
+
+  <!-- ================= A. ARRANQUE ================= -->
+  <rect x="8" y="8" width="1184" height="182" rx="10" fill="#f7f8fa" stroke="#dde2e8"/>
+  <text x="22" y="32" font-weight="700" font-size="14" fill="#5b6673">A. ARRANQUE Y NAVEGACIÓN  (pasa al abrir la página o cambiar de URL)</text>
+
+  <g font-size="11">
+    <rect x="20" y="62" width="170" height="76" rx="8" fill="#ffffff" stroke="#5b6673"/>
+    <text x="105" y="84" text-anchor="middle" font-weight="700" font-size="13">main.ts</text>
+    <text x="105" y="102" text-anchor="middle">punto de entrada</text>
+    <text x="105" y="120" text-anchor="middle" font-family="Consolas, monospace">bootstrapApplication(App)</text>
+
+    <rect x="228" y="62" width="225" height="76" rx="8" fill="#fff7e8" stroke="#e8a33d"/>
+    <text x="340" y="84" text-anchor="middle" font-weight="700" font-size="13">app.config.ts</text>
+    <text x="340" y="102" text-anchor="middle">registra las herramientas globales:</text>
+    <text x="340" y="120" text-anchor="middle" font-family="Consolas, monospace">provideRouter + provideHttpClient</text>
+    <text x="340" y="133" text-anchor="middle" font-family="Consolas, monospace">(withInterceptors)</text>
+
+    <rect x="491" y="62" width="186" height="76" rx="8" fill="#ffffff" stroke="#5b6673"/>
+    <text x="584" y="84" text-anchor="middle" font-weight="700" font-size="13">app.ts</text>
+    <text x="584" y="102" text-anchor="middle" font-family="Consolas, monospace">&lt;router-outlet /&gt;</text>
+    <text x="584" y="120" text-anchor="middle">hueco donde se pinta la pantalla</text>
+
+    <rect x="715" y="62" width="215" height="76" rx="8" fill="#ffffff" stroke="#5b6673"/>
+    <text x="822" y="84" text-anchor="middle" font-weight="700" font-size="13">app.routes.ts</text>
+    <text x="822" y="102" text-anchor="middle" font-family="Consolas, monospace">/login → Login</text>
+    <text x="822" y="118" text-anchor="middle" font-family="Consolas, monospace">/contribuyentes → Contribuyentes</text>
+    <text x="822" y="133" text-anchor="middle">cada ruta con su guard</text>
+
+    <rect x="968" y="62" width="212" height="76" rx="8" fill="#ffffff" stroke="#5b6673"/>
+    <text x="1074" y="84" text-anchor="middle" font-weight="700" font-size="13">core/auth.guard.ts</text>
+    <text x="1074" y="102" text-anchor="middle">authGuard: ¿hay sesión? no → /login</text>
+    <text x="1074" y="120" text-anchor="middle">invitadoGuard: ¿ya hay sesión?</text>
+    <text x="1074" y="133" text-anchor="middle">sí → /contribuyentes</text>
+  </g>
+  <g stroke="#5b6673" stroke-width="1.6" fill="none" marker-end="url(#g)">
+    <line x1="190" y1="100" x2="226" y2="100"/>
+    <line x1="453" y1="100" x2="489" y2="100"/>
+    <line x1="677" y1="100" x2="713" y2="100"/>
+    <line x1="930" y1="100" x2="966" y2="100"/>
+  </g>
+  <text x="600" y="168" text-anchor="middle" fill="#5b6673">La URL decide qué componente se pinta dentro de &lt;router-outlet&gt;; el guard puede desviar a otra ruta antes de pintarlo.</text>
+  <line x1="584" y1="138" x2="584" y2="150" stroke="#5b6673" stroke-width="1.6"/>
+
+  <!-- ================= B. EJECUCIÓN ================= -->
+  <rect x="8" y="202" width="1184" height="452" rx="10" fill="#fbfcfd" stroke="#dde2e8"/>
+  <text x="22" y="226" font-weight="700" font-size="14" fill="#5b6673">B. USANDO LA APP  (login y luego la lista)</text>
+
+  <!-- encabezados de columna -->
+  <g font-weight="700" font-size="12" text-anchor="middle">
+    <text x="120" y="248" fill="#a3002a">VISTA (.html)</text>
+    <text x="360" y="248" fill="#1f5a99">COMPONENTE (.ts)</text>
+    <text x="605" y="248" fill="#22703a">SERVICIO (lógica + estado)</text>
+    <text x="850" y="248" fill="#5b3a8f">SALIDA HTTP</text>
+    <text x="1085" y="248" fill="#3d4650">BACKEND</text>
+  </g>
+
+  <!-- fila 1: login -->
+  <g font-size="11">
+    <rect x="20" y="258" width="200" height="104" rx="8" fill="#fdeeee" stroke="#c3002f"/>
+    <text x="120" y="276" text-anchor="middle" font-weight="700" font-size="13">login/login.html</text>
+    <text x="32" y="300" font-family="Consolas, monospace">formControlName="username"</text>
+    <text x="32" y="318">@if → mensajes de validación</text>
+    <text x="32" y="346" font-family="Consolas, monospace">(ngSubmit)="entrar()"</text>
+
+    <rect x="260" y="258" width="200" height="104" rx="8" fill="#eaf1fb" stroke="#2f6fb3"/>
+    <text x="360" y="276" text-anchor="middle" font-weight="700" font-size="13">login/login.ts</text>
+    <text x="272" y="300">form + Validators</text>
+    <text x="272" y="318">cargando / error = signal()</text>
+    <text x="272" y="346" font-family="Consolas, monospace">entrar()</text>
+
+    <rect x="500" y="258" width="210" height="104" rx="8" fill="#edf7ef" stroke="#3b9a57"/>
+    <text x="605" y="276" text-anchor="middle" font-weight="700" font-size="13">core/auth.service.ts</text>
+    <text x="512" y="300" font-family="Consolas, monospace">login() → post + tap()</text>
+    <text x="512" y="318" font-family="Consolas, monospace">sesion = signal(...)</text>
+    <text x="512" y="346" font-family="Consolas, monospace">logueado · esAdmin · logout()</text>
+  </g>
+
+  <!-- localStorage -->
+  <rect x="520" y="380" width="170" height="36" rx="18" fill="#ffffff" stroke="#3b9a57" stroke-dasharray="4 3"/>
+  <text x="605" y="397" text-anchor="middle" font-size="11" font-weight="700">localStorage "sesion"</text>
+  <text x="605" y="410" text-anchor="middle" font-size="10" fill="#5b6673">sobrevive al F5</text>
+
+  <!-- columna HTTP (alta) -->
+  <rect x="750" y="258" width="200" height="306" rx="8" fill="#f3eefb" stroke="#7a4fb5"/>
+  <g font-size="11" text-anchor="middle">
+    <text x="850" y="378" font-weight="700" font-size="13">HttpClient</text>
+    <text x="850" y="394" font-weight="700" font-size="12">+ core/auth.interceptor.ts</text>
+    <text x="850" y="414">Antes de salir agrega:</text>
+    <text x="850" y="429" font-family="Consolas, monospace" font-size="10.5">Authorization: Bearer &lt;token&gt;</text>
+    <text x="850" y="447" fill="#c74634">Si vuelve 401 → auth.logout()</text>
+  </g>
+
+  <!-- backend (alto) -->
+  <rect x="990" y="258" width="190" height="306" rx="8" fill="#f2f4f7" stroke="#5b6673"/>
+  <g font-size="11" text-anchor="middle">
+    <text x="1085" y="378" font-weight="700" font-size="13">Backend</text>
+    <text x="1085" y="396">Quarkus :8081 · Spring :8080</text>
+    <text x="1085" y="414" font-family="Consolas, monospace">POST /api/auth/login</text>
+    <text x="1085" y="430" font-family="Consolas, monospace">/api/contribuyentes</text>
+    <text x="1085" y="447">valida firma, vencimiento y rol</text>
+  </g>
+
+  <!-- fila 2: lista / CRUD -->
+  <g font-size="11">
+    <rect x="20" y="432" width="200" height="132" rx="8" fill="#fdeeee" stroke="#c3002f"/>
+    <text x="120" y="450" text-anchor="middle" font-weight="700" font-size="12.5">contribuyentes.html</text>
+    <text x="32" y="490" font-family="Consolas, monospace">@for (c of lista())</text>
+    <text x="32" y="507">→ filas de la tabla</text>
+    <text x="32" y="545" font-family="Consolas, monospace">@if (auth.esAdmin())</text>
+    <text x="32" y="559">→ formulario y botones</text>
+
+    <rect x="260" y="432" width="200" height="132" rx="8" fill="#eaf1fb" stroke="#2f6fb3"/>
+    <text x="360" y="450" text-anchor="middle" font-weight="700" font-size="12.5">contribuyentes.ts</text>
+    <text x="272" y="490" font-family="Consolas, monospace">ngOnInit() → cargar()</text>
+    <text x="272" y="507" font-family="Consolas, monospace">lista = signal([])</text>
+    <text x="272" y="545">guardar · editar · eliminar</text>
+    <text x="272" y="559">error / mensaje = signal()</text>
+
+    <rect x="500" y="432" width="210" height="132" rx="8" fill="#edf7ef" stroke="#3b9a57"/>
+    <text x="605" y="450" text-anchor="middle" font-weight="700" font-size="12.5">contribuyente.service.ts</text>
+    <text x="512" y="490" font-family="Consolas, monospace">listar()     → GET</text>
+    <text x="512" y="507" font-family="Consolas, monospace">crear()      → POST</text>
+    <text x="512" y="545" font-family="Consolas, monospace">actualizar() → PUT</text>
+    <text x="512" y="559" font-family="Consolas, monospace">eliminar()   → DELETE</text>
+  </g>
+
+  <!-- archivos de apoyo -->
+  <rect x="260" y="590" width="200" height="50" rx="8" fill="#ffffff" stroke="#2f6fb3" stroke-dasharray="4 3"/>
+  <text x="360" y="609" text-anchor="middle" font-size="12" font-weight="700">core/mensaje-error.ts</text>
+  <text x="360" y="626" text-anchor="middle" font-size="10.5" fill="#5b6673">error HTTP → texto (lo usan ambos .ts)</text>
+  <line x1="360" y1="590" x2="360" y2="566" stroke="#2f6fb3" stroke-width="1.4" stroke-dasharray="4 3" marker-end="url(#b)"/>
+
+  <rect x="500" y="590" width="470" height="50" rx="8" fill="#fff7e8" stroke="#e8a33d" stroke-width="2"/>
+  <text x="735" y="610" text-anchor="middle" font-size="12.5" font-weight="700">api.config.ts   →   API_URL = 'http://localhost:8081'</text>
+  <text x="735" y="628" text-anchor="middle" font-size="11" fill="#9a5b00">la usan auth.service y contribuyente.service · único lugar para cambiar el puerto</text>
+  <line x1="605" y1="590" x2="605" y2="566" stroke="#e8a33d" stroke-width="1.6" marker-end="url(#g)"/>
+
+  <!-- ===== flechas LOGIN (azul) ===== -->
+  <g stroke="#2f6fb3" stroke-width="2" fill="none" marker-end="url(#b)">
+    <line x1="220" y1="290" x2="258" y2="290"/>
+    <line x1="460" y1="290" x2="498" y2="290"/>
+    <line x1="710" y1="290" x2="748" y2="290"/>
+    <line x1="950" y1="290" x2="988" y2="290"/>
+    <line x1="990" y1="334" x2="712" y2="334"/>
+    <line x1="605" y1="362" x2="605" y2="378"/>
+    <path d="M 440 258 L 440 196 L 1074 196 L 1074 140" stroke-dasharray="6 4"/>
+  </g>
+  <!-- ===== flechas LISTA (verde) ===== -->
+  <g stroke="#2e8b57" stroke-width="2" fill="none" marker-end="url(#v)">
+    <line x1="460" y1="470" x2="498" y2="470"/>
+    <line x1="710" y1="470" x2="988" y2="470"/>
+    <line x1="990" y1="522" x2="712" y2="522"/>
+    <line x1="500" y1="522" x2="462" y2="522"/>
+    <line x1="260" y1="522" x2="222" y2="522"/>
+  </g>
+  <!-- ===== 401 (rojo) ===== -->
+  <path d="M 750 456 C 728 440, 732 380, 712 352" stroke="#c74634" stroke-width="1.8" fill="none" stroke-dasharray="5 4" marker-end="url(#r)"/>
+
+  <!-- insignias numeradas -->
+  <g font-size="11" font-weight="700" text-anchor="middle" fill="#ffffff">
+    <g fill="#2f6fb3">
+      <circle cx="239" cy="290" r="10"/><circle cx="479" cy="290" r="10"/><circle cx="729" cy="290" r="10"/>
+      <circle cx="969" cy="290" r="10"/><circle cx="969" cy="334" r="10"/><circle cx="626" cy="370" r="10"/>
+      <circle cx="440" cy="228" r="10"/>
+    </g>
+    <text x="239" y="294">1</text><text x="479" y="294">2</text><text x="729" y="294">3</text>
+    <text x="969" y="294">4</text><text x="969" y="338">5</text><text x="626" y="374">6</text>
+    <text x="440" y="232">7</text>
+    <g fill="#2e8b57">
+      <circle cx="479" cy="470" r="10"/><circle cx="729" cy="470" r="10"/><circle cx="969" cy="522" r="10"/><circle cx="239" cy="522" r="10"/>
+    </g>
+    <text x="479" y="474">8</text><text x="729" y="474">9</text><text x="969" y="526">10</text><text x="239" y="526">11</text>
+  </g>
+
+  <!-- ================= LEYENDA ================= -->
+  <g font-size="12">
+    <text x="22" y="684" font-weight="700" font-size="13" fill="#2f6fb3">LOGIN</text>
+    <text x="22" y="706"><tspan font-weight="700">1</tspan>  El botón Ingresar dispara (ngSubmit) → entrar() en login.ts</text>
+    <text x="22" y="726"><tspan font-weight="700">2</tspan>  login.ts valida el formulario y llama a auth.login(usuario, clave)</text>
+    <text x="22" y="746"><tspan font-weight="700">3</tspan>  auth.service hace http.post(API_URL + '/api/auth/login')</text>
+    <text x="22" y="766"><tspan font-weight="700">4</tspan>  El interceptor la deja pasar sin token (todavía no hay) → backend</text>
+    <text x="22" y="786"><tspan font-weight="700">5</tspan>  El backend responde 200 { token, username, rol }</text>
+    <text x="22" y="806"><tspan font-weight="700">6</tspan>  tap() guarda la sesión en localStorage y en el signal sesion</text>
+    <text x="22" y="826"><tspan font-weight="700">7</tspan>  login.ts navega a /contribuyentes → pasa por app.routes y authGuard (A)</text>
+
+    <text x="620" y="684" font-weight="700" font-size="13" fill="#2e8b57">LISTA Y CRUD</text>
+    <text x="620" y="706"><tspan font-weight="700">8</tspan>  Al abrir la pantalla, ngOnInit() → cargar() → servicio.listar()</text>
+    <text x="620" y="726"><tspan font-weight="700">9</tspan>  http.get(...) → el interceptor agrega Authorization: Bearer &lt;token&gt;</text>
+    <text x="620" y="746"><tspan font-weight="700">10</tspan>  El backend valida el token y el rol → 200 [ ... ] (o 403 si no puede)</text>
+    <text x="620" y="766"><tspan font-weight="700">11</tspan>  lista.set(datos) → el @for del .html se vuelve a pintar solo</text>
+    <text x="620" y="796" font-weight="700" fill="#c74634">- - -  401 en cualquier petición:</text>
+    <text x="620" y="816" fill="#c74634">el interceptor llama a auth.logout() → borra la sesión → /login</text>
+    <text x="620" y="846" fill="#5b6673">Crear, editar y eliminar siguen el mismo camino que 8 a 11 (POST, PUT, DELETE).</text>
+  </g>
+</svg>
